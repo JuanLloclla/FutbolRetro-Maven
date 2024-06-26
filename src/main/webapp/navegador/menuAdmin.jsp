@@ -38,7 +38,7 @@
         </div>
     </a>
 
-    <a href="">
+    <a href="reportes.jsp?paginaActualSinControlador=reportes" class="${paginaActualSinControlador eq 'reportes' ? 'activo' : ''}">
         <div class="menu-tarjetas">
             <i class="fa-solid fa-file-lines"></i>
             <p>REPORTES</p>
