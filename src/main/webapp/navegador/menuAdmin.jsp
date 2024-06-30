@@ -51,7 +51,7 @@
             <p>GUIA</p>
         </div>
         
-    </a><a href="informe.jsp?paginaActualSinControlador=informe" class="${paginaActualSinControlador eq 'informe' ? 'activo' : ''}">
+    </a><a href="quejasAyuda.jsp?paginaActualSinControlador=quejasAyuda" class="${paginaActualSinControlador eq 'quejasAyuda' ? 'activo' : ''}">
         <div class="menu-tarjetas">
             <i class="fa-solid fa-envelope"></i>
             <p>INFORMES</p>

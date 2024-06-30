@@ -36,32 +36,142 @@
                         </a>
                     </div>
                 </div>
+
+
                 <!-- Aqui irán las diferentes ventanas -->
                 <div class="info">
-                    <h1>Guía de Uso del Sistema de Control de Ventas</h1>
-                    <p>Bienvenido al sistema de control de ventas para apuestas. Esta guía te ayudará a navegar y utilizar las diferentes funcionalidades del sistema. Sigue las instrucciones a continuación según tu rol (Administrador o Empleado).</p>
 
-                    <h2>Funciones para Administradores</h2>
-                    <ul>
-                        <li><strong>Gestión de Usuarios:</strong> Permite agregar, editar y eliminar usuarios del sistema. Para acceder a esta función, navega a <i>Gestionar Usuarios</i> en el menú de administrador.</li>
-                        <li><strong>Reportes:</strong> Genera reportes detallados de ventas y actividad del sistema. Esta opción está disponible en <i>Reportes</i>.</li>
-                        <li><strong>Configuración del Sistema:</strong> Modifica las configuraciones generales del sistema, como parámetros de seguridad y preferencias de usuario.</li>
-                    </ul>
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Guía de Uso del Sistema de Control de Ventas</title>
+                        <style>
+                            body {
+                                font-family: Arial, sans-serif;
+                                background-color: #f4f4f9;
+                                color: #333;
+                                margin: 0;
+                                padding: 0;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                height: 100vh;
+                            }
 
-                    <h2>Funciones para Empleados</h2>
-                    <ul>
-                        <li><strong>Registro de Ventas:</strong> Permite registrar nuevas ventas en el sistema. Esta función está disponible en <i>Ventas</i> en el menú de empleado.</li>
-                        <li><strong>Consulta de Ventas:</strong> Consulta el historial de ventas realizadas. Accede a esta función en el apartado <i>Historial de Ventas</i>.</li>
-                    </ul>
+                            .info {
+                                background-color: #28292B;
+                                height: 640px; /* Altura */
+                                margin: 15px;
+                                margin-top: 30px;
+                                border: 1px solid;
+                                color: #ddd;
+                                padding: 20px;
+                                width: calc(100% - 60px); /* Ajusta el ancho */
+                                border-radius: 8px;
+                                box-sizing: border-box;
+                                overflow-y: auto;
+                            }
 
-                    <h2>Instrucciones Generales</h2>
-                    <ol>
-                        <li><strong>Inicio de Sesión:</strong> Utiliza tus credenciales proporcionadas para iniciar sesión en el sistema.</li>
-                        <li><strong>Navegación:</strong> Usa el menú de la parte superior para acceder a las diferentes secciones según tu rol.</li>
-                        <li><strong>Cerrar Sesión:</strong> Para salir del sistema, haz clic en el botón <i>SALIR</i> ubicado en la esquina superior derecha.</li>
-                    </ol>
+                            h1 {
+                                color: #4CAF50;
+                                text-align: center;
+                                margin-bottom: 20px;
+                            }
+
+                            h2 {
+                                color: #ddd;
+                                border-bottom: 2px solid #4CAF50;
+                                padding-bottom: 10px;
+                                margin-top: 30px;
+                            }
+
+                            p {
+                                line-height: 1.6;
+                                text-align: justify;
+                                color: #bbb;
+                            }
+
+                            .section {
+                                margin-bottom: 20px;
+                            }
+
+                            .instructions {
+                                background: #3a3b3c;
+                                padding: 10px;
+                                border-left: 4px solid #4CAF50;
+                                margin-bottom: 20px;
+                            }
+
+                            ul {
+                                list-style-type: none;
+                                padding: 0;
+                            }
+
+                            ul li {
+                                margin: 10px 0;
+                                padding: 10px;
+                                background: #444;
+                                border: 1px solid #555;
+                                border-radius: 4px;
+                                color: #ddd;
+                            }
+
+                            ul li:hover {
+                                background: #555;
+                            }
+
+                            @media (max-width: 600px) {
+                                .info {
+                                    padding: 15px;
+                                }
+
+                                h2 {
+                                    font-size: 1.2em;
+                                }
+
+                                ul li {
+                                    font-size: 0.9em;
+                                }
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="info">
+                            <h1>Guía de Uso del Sistema de Control de Ventas</h1>
+                            <p>Bienvenido al sistema de control de ventas para apuestas. Esta guía te ayudará a navegar y utilizar las diferentes funcionalidades del sistema. Sigue las instrucciones a continuación según tu rol (Administrador o Empleado).</p>
+
+                            <div class="section">
+                                <h2>Funciones para Administradores</h2>
+                                <ul>
+                                    <li><strong>Gestión de Usuarios:</strong> Permite agregar, editar y eliminar usuarios del sistema. Para acceder a esta función, navega a Gestionar Usuarios en el menú de administrador.</li>
+                                    <li><strong>Reportes:</strong> Genera reportes detallados de ventas y actividad del sistema. Esta opción está disponible en Reportes.</li>
+                                    <li><strong>Configuración del Sistema:</strong> Modifica las configuraciones generales del sistema, como parámetros de seguridad y preferencias de usuario.</li>
+                                </ul>
+                            </div>
+
+                            <div class="section">
+                                <h2>Funciones para Empleados</h2>
+                                <ul>
+                                    <li><strong>Registro de Ventas:</strong> Permite registrar nuevas ventas en el sistema. Esta función está disponible en Ventas en el menú de empleado.</li>
+                                    <li><strong>Consulta de Ventas:</strong> Consulta el historial de ventas realizadas. Accede a esta función en el apartado Historial de Ventas.</li>
+                                </ul>
+                            </div>
+
+                            <div class="section instructions">
+                                <h2>Instrucciones Generales</h2>
+                                <ul>
+                                    <li><strong>Inicio de Sesión:</strong> Utiliza tus credenciales proporcionadas para iniciar sesión en el sistema.</li>
+                                    <li><strong>Navegación:</strong> Usa el menú de la parte superior para acceder a las diferentes secciones según tu rol.</li>
+                                    <li><strong>Cerrar Sesión:</strong> Para salir del sistema, haz clic en el botón SALIR ubicado en la esquina superior derecha.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </body>  
 
                 </div>
+
+
+
             </div>
         </div>
     </body>
