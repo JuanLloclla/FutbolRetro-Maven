@@ -36,8 +36,10 @@
             }
         </script>
         
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="css/navegadorCSS.css" rel="stylesheet" type="text/css"/>
         <link href="css/reportesCSS.css" rel="stylesheet" type="text/css"/>
         <title>Futbol Retro - Reportes</title>
@@ -76,8 +78,8 @@
                 <!-- Aqui irán las diferentes ventanas (solo es copiar el mismo formato, crear un jsp con nombre "Productos" y aqui empezar a programar-->
                 <!-- Aca puedes cambiar el nombre del class y hacer un css nuevo para este div que sera la ventana reportes -->
                 <div class="info">
+                    <div id="piechart_3d" ></div>
                 </div>
-                <div id="piechart_3d" ></div>
             </div>
         </div>
     </body>

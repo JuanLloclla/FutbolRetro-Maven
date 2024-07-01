@@ -17,7 +17,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">  
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -130,8 +130,8 @@
                                                 <td><%= usuarios.getRol()%></td>
                                                 <td class="btn-group">
                                                     <!-- Aquí puedes agregar botones para acciones como editar o eliminar -->
-                                                    <a class="btn btn-primary" href="srvUsuario?accion=editar&id=<%= usuarios.getId()%>">Editar</a>
-                                                    <a class="btn btn-danger" href="srvUsuario?accion=eliminar&id=<%= usuarios.getId()%>">Eliminar</a>
+                                                    <a class="btn btn-primary" href="srvUsuario?accion=editar&id=<%= usuarios.getId()%>"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i></a>
+                                                    <a class="btn btn-danger" href="srvUsuario?accion=eliminar&id=<%= usuarios.getId()%>"><i class="fa-solid fa-trash-can" style="color: #ffffff;"></i></a>
                                                 </td>
                                             </tr>
                                             <% }

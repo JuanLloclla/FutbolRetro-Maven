@@ -65,6 +65,7 @@ public class srvCaja extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         
         // Accion
@@ -335,22 +336,27 @@ public class srvCaja extends HttpServlet {
                     // El idVenta lo convertimos a String
                     String idVentaStr = String.valueOf(idVenta);
                     
+                    String correo = cdao.obtenerCorreoCliente(c.getIdCliente());
+                    
                     // Nos Llevamos los parametros comprobantePago y idVenta
                     request.setAttribute("comprobantePago", comprobantePago);
+                    request.setAttribute("accion", "gmail");
+                    request.setAttribute("correo", correo);
                     request.setAttribute("idVenta", idVentaStr);
-                    request.getRequestDispatcher("ventaCompleta.jsp").forward(request, response);
+                    request.getRequestDispatcher("reportes/ComprobantePago.jsp").forward(request, response);
                     break;
 
                 case "ComprobantePago":
                     // Traemos los parametros
                     String idVentaComprobante = request.getParameter("idVenta");
                     String comprobantePago2 = request.getParameter("comprobantePago");
+                    
+                    //Enviamos los parametros
                     request.setAttribute("idVenta", idVentaComprobante);
-                    if ("factura".equalsIgnoreCase(comprobantePago2)) {
-                        request.getRequestDispatcher("reportes/factura.jsp").forward(request, response);
-                    } else {
-                        request.getRequestDispatcher("reportes/boleta.jsp").forward(request, response);
-                    }
+                    request.setAttribute("comprobantePago", comprobantePago2);
+                    request.setAttribute("accion", "mostrar");
+                    
+                    request.getRequestDispatcher("reportes/ComprobantePago.jsp").forward(request, response);
                     break;
                 default:
                     v = new Venta();

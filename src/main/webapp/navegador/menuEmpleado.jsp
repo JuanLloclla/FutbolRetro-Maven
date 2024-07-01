@@ -26,7 +26,7 @@
 
     <a href="srvVenta?accion=Listar" class="${paginaActual eq 'ventas' ? 'activo' : ''}">
         <div class="menu-tarjetas">
-            <i class="fa-solid fa-chart-column"></i>
+            <i class="fa-solid fa-file-lines"></i>
             <p>VENTAS</p>
         </div>
     </a>
@@ -37,7 +37,7 @@
             <p>GUIA</p>
         </div>
         
-    </a><a href="quejasAyuda?paginaActualSinControlador=quejasAyuda" class="${paginaActualSinControlador eq 'quejasAyuda' ? 'activo' : ''}">
+    </a><a href="quejasAyuda.jsp?paginaActualSinControlador=quejasAyuda" class="${paginaActualSinControlador eq 'quejasAyuda' ? 'activo' : ''}">
         <div class="menu-tarjetas">
             <i class="fa-solid fa-envelope"></i>
             <p>INFORMES</p>

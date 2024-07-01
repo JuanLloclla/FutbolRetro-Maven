@@ -18,7 +18,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="css/navegadorCSS.css" rel="stylesheet" type="text/css"/>
@@ -106,7 +107,7 @@
                                                 <th>Precio sin IGV</th>
                                                 <th>Stock</th>
                                                 <th>Categoria</th>
-                                                <th>Acciones</th>
+                                                <th>ACCIONES</th>
                                             </tr>
                                         </thead>
                                         <tbody class="contenido">
@@ -121,8 +122,8 @@
                                                 <td><%= productos.getCategoria()%></td>                                           
                                                 <td class="btn-group">
                                                     <!-- Aquí puedes agregar botones para acciones como editar o eliminar -->
-                                                    <a class="btn btn-primary" href="srvProducto?accion=editar&id=<%= productos.getIdProd()%>">Editar</a>
-                                                    <a class="btn btn-danger" href="srvProducto?accion=eliminar&id=<%= productos.getIdProd()%>">Eliminar</a>
+                                                    <a class="btn btn-primary" href="srvProducto?accion=editar&id=<%= productos.getIdProd()%>"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i></a>
+                                                    <a class="btn btn-danger" href="srvProducto?accion=eliminar&id=<%= productos.getIdProd()%>"><i class="fa-solid fa-trash-can" style="color: #ffffff;"></i></a>
                                                 </td>
                                             </tr>
                                             <% }

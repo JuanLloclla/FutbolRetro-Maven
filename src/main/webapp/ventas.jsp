@@ -14,7 +14,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="css/navegadorCSS.css" rel="stylesheet" type="text/css"/>
@@ -83,7 +84,7 @@
                                     <th>Cliente: <%= ventas.getNomCliente()%> <%= ventas.getApellCliente()%></th>
                                     <th>Monto Total: <%= ventas.getMontoTotal()%></th>
                                     
-                                    <th><a class="btn btn-danger" href="srvVenta?accion=eliminar&id=<%= ventas.getIdVenta()%>" <% if(rol.equals("empleado")){ %> id="disabled" <%}%>>Eliminar</a></th>
+                                    <th><a class="btn btn-danger" href="srvVenta?accion=eliminar&id=<%= ventas.getIdVenta()%>" <% if(rol.equals("empleado")){ %> id="disabled" <%}%>><i class="fa-solid fa-trash-can" style="color: #ffffff;"></i></a></th>
                                 </tr>
                                 <tr class="cabecera2">
                                     <th>Nro.</th>

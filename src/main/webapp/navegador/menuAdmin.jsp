@@ -33,14 +33,14 @@
 
     <a href="srvVenta?accion=Listar" class="${paginaActual eq 'ventas' ? 'activo' : ''}">
         <div class="menu-tarjetas">
-            <i class="fa-solid fa-chart-column"></i>
+            <i class="fa-solid fa-file-lines"></i>
             <p>VENTAS</p>
         </div>
     </a>
 
     <a href="reportes.jsp?paginaActualSinControlador=reportes" class="${paginaActualSinControlador eq 'reportes' ? 'activo' : ''}">
         <div class="menu-tarjetas">
-            <i class="fa-solid fa-file-lines"></i>
+            <i class="fa-solid fa-chart-column"></i>
             <p>REPORTES</p>
         </div>
     </a>

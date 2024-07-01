@@ -119,4 +119,20 @@ public class ClienteDAO extends Conexion{
         }
         return c;
     }
+    
+    //Encontrar un correo del cliente
+    public String obtenerCorreoCliente(int id){
+        String correo = null;
+        String SQL = "select correo from clientes where idCliente="+id;
+        try {
+            ps = con.prepareStatement(SQL);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                correo = rs.getString("correo");
+            }
+        } catch (Exception e) {
+            System.out.println("ERROR al obetener el correo del cliente..."+e);
+        }
+        return correo;
+    }
 }
