@@ -98,6 +98,12 @@ input.form-control:-moz-autofill {
     border-color: #8E44AD;
 }
 
+#btnExcel{
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    margin-top: 60px;
+}
 /* CSS DE LA PARTE DERECHA (TABLA PRODUCTOS)*/
 
 .derecha{

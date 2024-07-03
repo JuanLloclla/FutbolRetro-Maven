@@ -7,9 +7,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.OutputStream;
 
 import DAO.ProductoDAO;
 import Modelo.Producto;
+import Documentos.GenerarExcel;
 import java.util.List;
 
 /**
@@ -21,6 +23,7 @@ public class srvProducto extends HttpServlet {
     
     int idProducto;
     ProductoDAO productodao = new ProductoDAO();
+    GenerarExcel generarexcel = new GenerarExcel();
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -94,7 +97,20 @@ public class srvProducto extends HttpServlet {
                     request.getRequestDispatcher("srvProducto?accion=Listar").forward(request, response);
                     
                     break;
+                case "exportarExcel":
+                    List<Producto> productos = productodao.RecuperarRegistrosProducto();
+                    String nombreArchivo = "productos.xlsx";
 
+                    response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+                    response.setHeader("Content-Disposition", "attachment; filename=" + nombreArchivo);
+
+                    try (OutputStream outputStream = response.getOutputStream()) {
+                        generarexcel.crearExcelProductos(productos, outputStream); // Llamada al generador de Excel
+                    }
+                    
+                    request.setAttribute("tabla", "productos");
+                    request.getRequestDispatcher("exportarExcel.jsp").forward(request, response);
+                    break;
                 default: request.getRequestDispatcher("srvProducto?accion=Listar").forward(request, response);
             }
             

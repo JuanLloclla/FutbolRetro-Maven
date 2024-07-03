@@ -28,6 +28,7 @@
 
     </head>
     <body>
+        
         <div class="container-fuera">
             <div class="container-dentro">
 
@@ -94,6 +95,9 @@
                                         <button type="submit" class="btn btn-danger" name="accion" value="actualizar" id="actualizar">Actualizar</button>
                                     </div>
                                 </form>
+                                        
+                                <a class="btn btn-info" id="btnExcel" href="srvProducto?accion=exportarExcel">Exportar Excel</a>
+                                
                             </div>
                             <!-- Lado derecho: Tabla de productos -->
                             <div class="derecha">
