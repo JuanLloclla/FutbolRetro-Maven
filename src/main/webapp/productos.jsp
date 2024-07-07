@@ -25,6 +25,7 @@
         <link href="css/navegadorCSS.css" rel="stylesheet" type="text/css"/>
         <link href="css/productosCSS.css" rel="stylesheet" type="text/css"/>
         <title>Futbol Retro - Productos</title>
+        <link rel="icon" href="img/logo(Nuevo).png" type="image/x-icon">
 
     </head>
     <body>

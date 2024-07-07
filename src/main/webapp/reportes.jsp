@@ -43,6 +43,7 @@
         <link href="css/navegadorCSS.css" rel="stylesheet" type="text/css"/>
         <link href="css/reportesCSS.css" rel="stylesheet" type="text/css"/>
         <title>Futbol Retro - Reportes</title>
+        <link rel="icon" href="img/logo(Nuevo).png" type="image/x-icon">
     </head>
     <body>
         <div class="container-fuera">

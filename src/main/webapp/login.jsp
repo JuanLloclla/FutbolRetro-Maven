@@ -5,13 +5,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/loginCSS.css" rel="stylesheet" type="text/css"/>
-        <title>Futbol Retro - Login</title>   
+        <title>Futbol Retro - Login</title>  
+        <link rel="icon" href="img/logo(Nuevo).png" type="image/x-icon">
     </head>
     <body>
         <div class="container">
             <div class="login">
                 <div class="logo">
-                    <img src="img/logo.png" alt="logo.png"/>
+                    <img src="img/logo(Nuevo).png" alt="logo.png"/>
                 </div>
                 <form action="srvLogin" method="post">
                     <h2>LOGIN</h2>

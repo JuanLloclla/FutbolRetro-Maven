@@ -19,7 +19,7 @@
         <link href="css/navegadorCSS.css" rel="stylesheet" type="text/css"/>
         <link href="css/cajaCSS.css" rel="stylesheet" type="text/css"/>
         <title>Futbol Retro - Caja</title>
-        <link rel="icon" href="img/logo.png" type="image/x-icon">
+        <link rel="icon" href="img/logo(Nuevo).png" type="image/x-icon">
     </head>
     <body>
         <div class="container-fuera">

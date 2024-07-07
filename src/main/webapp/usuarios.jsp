@@ -25,6 +25,7 @@
         <link href="css/navegadorCSS.css" rel="stylesheet" type="text/css"/>
         <link href="css/usuariosCSS.css" rel="stylesheet" type="text/css"/>
         <title>Futbol Retro - Usuarios</title> 
+        <link rel="icon" href="img/logo(Nuevo).png" type="image/x-icon">
     </head>
     <body>
         <div class="container-fuera" style="">

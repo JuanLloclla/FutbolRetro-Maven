@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <link href="css/exportarExcelCSS.css" rel="stylesheet" type="text/css"/>
         <title>Exportar Excel Completado</title>
+        <link rel="icon" href="img/logo(Nuevo).png" type="image/x-icon">
     </head>
     <body>
         <div class="container py-4">
