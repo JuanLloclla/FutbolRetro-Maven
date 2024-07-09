@@ -11,8 +11,12 @@ import java.io.OutputStream;
 
 import DAO.ProductoDAO;
 import Modelo.Producto;
-import Documentos.GenerarExcel;
+import Documentos.*;
+import com.itextpdf.text.DocumentException;
+
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,6 +28,7 @@ public class srvProducto extends HttpServlet {
     int idProducto;
     ProductoDAO productodao = new ProductoDAO();
     GenerarExcel generarexcel = new GenerarExcel();
+    GenerarPDF generarpdf = new GenerarPDF();
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,9 +38,10 @@ public class srvProducto extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     * @throws com.itextpdf.text.DocumentException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, DocumentException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         
@@ -97,20 +103,32 @@ public class srvProducto extends HttpServlet {
                     request.getRequestDispatcher("srvProducto?accion=Listar").forward(request, response);
                     
                     break;
+                    
                 case "exportarExcel":
-                    List<Producto> productos = productodao.RecuperarRegistrosProducto();
+                    List<Producto> productosExcel = productodao.RecuperarRegistrosProducto();
                     String nombreArchivo = "productos.xlsx";
 
                     response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
                     response.setHeader("Content-Disposition", "attachment; filename=" + nombreArchivo);
 
                     try (OutputStream outputStream = response.getOutputStream()) {
-                        generarexcel.crearExcelProductos(productos, outputStream); // Llamada al generador de Excel
+                        generarexcel.crearExcelProductos(productosExcel, outputStream); // Llamada al generador de Excel
                     }
                     
-                    request.setAttribute("tabla", "productos");
-                    request.getRequestDispatcher("exportarExcel.jsp").forward(request, response);
                     break;
+                
+                case "exportarPDF":
+                    List<Producto> productosPDF = productodao.RecuperarRegistrosProducto();
+                    String nombreArchivoPDF = "productos.pdf";
+
+                    response.setContentType("application/pdf");
+                    response.setHeader("Content-Disposition", "attachment; filename=" + nombreArchivoPDF);
+
+                    try (OutputStream outputStream = response.getOutputStream()) {
+                        generarpdf.crearPDFProductos(productosPDF, outputStream); // Llamada al generador de PDF
+                    }
+                    break;
+                    
                 default: request.getRequestDispatcher("srvProducto?accion=Listar").forward(request, response);
             }
             
@@ -131,7 +149,11 @@ public class srvProducto extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (DocumentException ex) {
+            Logger.getLogger(srvProducto.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -145,7 +167,11 @@ public class srvProducto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (DocumentException ex) {
+            Logger.getLogger(srvProducto.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

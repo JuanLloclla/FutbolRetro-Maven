@@ -10,7 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import DAO.UsuarioDAO;
 import Modelo.Usuario;
+import Documentos.*;
+import com.itextpdf.text.DocumentException;
+
 import java.util.List;
+import java.io.OutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -21,6 +28,8 @@ public class srvUsuario extends HttpServlet {
     
     int idUsuario;
     UsuarioDAO usuariodao = new UsuarioDAO();
+    GenerarExcel generarexcel = new GenerarExcel();
+    GenerarPDF generarpdf = new GenerarPDF();
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,9 +39,10 @@ public class srvUsuario extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     * @throws com.itextpdf.text.DocumentException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, DocumentException {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         
@@ -101,7 +111,32 @@ public class srvUsuario extends HttpServlet {
                     request.getRequestDispatcher("srvUsuario?accion=Listar").forward(request, response);
                     
                     break;
+                    
+                case "exportarExcel":
+                    List<Usuario> usuariosExcel = usuariodao.RecuperarRegistrosUsuario();
+                    String nombreArchivo = "usuarios.xlsx";
 
+                    response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+                    response.setHeader("Content-Disposition", "attachment; filename=" + nombreArchivo);
+
+                    try (OutputStream outputStream = response.getOutputStream()) {
+                        generarexcel.crearExcelUsuarios(usuariosExcel, outputStream); // Llamada al generador de Excel
+                    }
+
+                    break;
+
+                case "exportarPDF":
+                    List<Usuario> usuariosPDF = usuariodao.RecuperarRegistrosUsuario();
+                    String nombreArchivoPDF = "usuarios.pdf";
+
+                    response.setContentType("application/pdf");
+                    response.setHeader("Content-Disposition", "attachment; filename=" + nombreArchivoPDF);
+
+                    try (OutputStream outputStream = response.getOutputStream()) {
+                        generarpdf.crearPDFUsuarios(usuariosPDF, outputStream); // Llamada al generador de PDF
+                    }
+                    break;
+                    
                 default: request.getRequestDispatcher("srvUsuario?accion=Listar").forward(request, response);
             }
             
@@ -122,7 +157,11 @@ public class srvUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (DocumentException ex) {
+            Logger.getLogger(srvUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -136,7 +175,11 @@ public class srvUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (DocumentException ex) {
+            Logger.getLogger(srvUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

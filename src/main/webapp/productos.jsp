@@ -22,6 +22,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="//code.tidio.co/h3vn9dwczska9xxz82te7gjkkgbdyhn8.js" async></script>
         <link href="css/navegadorCSS.css" rel="stylesheet" type="text/css"/>
         <link href="css/productosCSS.css" rel="stylesheet" type="text/css"/>
         <title>Futbol Retro - Productos</title>
@@ -96,9 +97,10 @@
                                         <button type="submit" class="btn btn-danger" name="accion" value="actualizar" id="actualizar">Actualizar</button>
                                     </div>
                                 </form>
-                                        
-                                <a class="btn btn-info" id="btnExcel" href="srvProducto?accion=exportarExcel">Exportar Excel</a>
-                                
+                                            <div class="container-generador">   
+                                                <a class="btnExcel" href="srvProducto?accion=exportarExcel"><img src="img/excel.png" alt="excel.png"/></a>
+                                                <a class="btnPDF" href="srvProducto?accion=exportarPDF"><img src="img/pdf.png" alt="pdf.png"/></a>
+                                            </div>
                             </div>
                             <!-- Lado derecho: Tabla de productos -->
                             <div class="derecha">
@@ -107,11 +109,11 @@
                                     <table class="table"> 
                                         <thead class="cabecera">
                                             <tr>
-                                                <th>Codigo Producto</th>
-                                                <th>Descripcion</th>
-                                                <th>Precio sin IGV</th>
-                                                <th>Stock</th>
-                                                <th>Categoria</th>
+                                                <th>CODIGO</th>
+                                                <th>DESCRIPCION</th>
+                                                <th>P. SIN IGV</th>
+                                                <th>STOCK</th>
+                                                <th>CATEGORIA</th>
                                                 <th>ACCIONES</th>
                                             </tr>
                                         </thead>
@@ -122,13 +124,13 @@
                                             <tr>
                                                 <td><%= productos.getIdProd()%></td>
                                                 <td><%= productos.getDescripcion()%></td>
-                                                <td><%= productos.getPrecio()%></td>
+                                                <td>S/. <%= productos.getPrecio()%></td>
                                                 <td><%= productos.getStock()%></td>
                                                 <td><%= productos.getCategoria()%></td>                                           
                                                 <td class="btn-group">
                                                     <!-- Aquí puedes agregar botones para acciones como editar o eliminar -->
-                                                    <a class="btn btn-primary" href="srvProducto?accion=editar&id=<%= productos.getIdProd()%>"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i></a>
-                                                    <a class="btn btn-danger" href="srvProducto?accion=eliminar&id=<%= productos.getIdProd()%>"><i class="fa-solid fa-trash-can" style="color: #ffffff;"></i></a>
+                                                    <a class="btn btn-primary" style="width: 56px;" href="srvProducto?accion=editar&id=<%= productos.getIdProd()%>"><i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i></a>
+                                                    <a class="btn btn-danger" style="width: 56px;" href="srvProducto?accion=eliminar&id=<%= productos.getIdProd()%>"><i class="fa-solid fa-trash-can" style="color: #ffffff;"></i></a>
                                                 </td>
                                             </tr>
                                             <% }

@@ -91,11 +91,11 @@
                     Message message = new MimeMessage(session2);
                     message.setFrom(new InternetAddress(user));
                     message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(correo)); // Dirección de correo destinatario
-                    message.setSubject("COMPROBANTE DE PAGO");
+                    message.setSubject("COMPRA REALIZADA");
 
                     // Cuerpo del mensaje
                     BodyPart messageBodyPart = new MimeBodyPart();
-                    messageBodyPart.setText("Adjunto el comprobante de pago.");
+                    messageBodyPart.setText("¡Gracias por comprar en nuestra tienda Futbol Retro!\n\nSu pedido ha sido procesado con éxito.\n\nAdjunto el comprobante de pago.");
 
                     // Adjuntar el archivo PDF
                     MimeBodyPart attachmentPart = new MimeBodyPart();

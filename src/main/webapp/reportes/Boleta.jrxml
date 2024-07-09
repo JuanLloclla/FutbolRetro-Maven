@@ -2,12 +2,12 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.1"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="17"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="idVentaParam" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select v.idVenta, c.nombre, c.apellido, c.dni, concat(c.nombre, ' ', c.apellido) as cliente , c.telefono, c.correo, cp.numComprobantePago, DATE(v.fecha), v.precioTotal from ventas v 
+		<![CDATA[select v.idVenta, c.nombre, c.apellido, c.dni, concat(c.nombre, ' ', c.apellido) as cliente , c.telefono, c.correo, cp.numComprobantePago, v.fecha, v.precioTotal from ventas v 
 inner join clientes c on v.idCliente = c.idCliente
 inner join comprobantePago cp on v.idVenta = cp.idVenta
 where v.idVenta=$P{idVentaParam}]]>
@@ -20,7 +20,7 @@ where v.idVenta=$P{idVentaParam}]]>
 	<field name="telefono" class="java.lang.Integer"/>
 	<field name="correo" class="java.lang.String"/>
 	<field name="numComprobantePago" class="java.lang.String"/>
-	<field name="DATE(v.fecha)" class="java.sql.Date"/>
+	<field name="fecha" class="java.time.LocalDateTime"/>
 	<field name="precioTotal" class="java.math.BigDecimal"/>
 	<background>
 		<band splitType="Stretch"/>
@@ -58,33 +58,33 @@ where v.idVenta=$P{idVentaParam}]]>
 				</graphicElement>
 			</rectangle>
 			<staticText>
-				<reportElement x="1" y="9" width="304" height="21"/>
+				<reportElement x="101" y="9" width="204" height="21"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[FUTBOL RETRO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="31" width="304" height="19"/>
+				<reportElement x="101" y="31" width="204" height="19"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[Venta de balones, camisetas antiguas y modernas]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="51" width="304" height="19"/>
+				<reportElement x="101" y="51" width="204" height="19"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="false"/>
 				</textElement>
 				<text><![CDATA[Teléfono: 948 456 784]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="71" width="304" height="19"/>
+				<reportElement x="101" y="71" width="204" height="19"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[Lima, Perú]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="90" width="304" height="20"/>
+				<reportElement x="101" y="90" width="204" height="20"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<text><![CDATA[soporte@futbolretro.com]]></text>
+				<text><![CDATA[futbolretrosoporte@gmail.com]]></text>
 			</staticText>
 			<rectangle>
 				<reportElement x="1" y="140" width="100" height="20"/>
@@ -195,18 +195,22 @@ where v.idVenta=$P{idVentaParam}]]>
 				<textFieldExpression><![CDATA[$F{dni}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="430" y="201" width="114" height="20"/>
-				<textElement verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{DATE(v.fecha)}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="407" y="73" width="100" height="20"/>
 				<textElement verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{numComprobantePago}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="1" y="6" width="113" height="104"/>
+				<imageExpression><![CDATA["C:\\Users\\Juan\\Documents\\NetBeansProjects\\FutbolRetro-Maven\\src\\main\\webapp\\img\\logoReporte.jpg"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="430" y="201" width="124" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{fecha}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>

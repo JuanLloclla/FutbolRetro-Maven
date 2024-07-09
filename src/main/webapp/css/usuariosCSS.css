@@ -34,6 +34,9 @@
     height: 30px;
 }
 
+.form-group label{
+    margin-bottom: 5px;
+}
 /*Los input del formulario*/
 .form-control{
     background-color: #1A1A1A;
@@ -93,6 +96,18 @@ input.form-control:-moz-autofill {
 #actualizar{
     background-color: #8E44AD;
     border-color: #8E44AD;
+}
+
+.container-generador{
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+    gap: 50px;
+}
+
+.btnExcel img, .btnPDF img{
+    width: 50px;
+    height: 50px;
 }
 
 /* CSS DE LA PARTE DERECHA (TABLA USUARIOS)*/

@@ -22,6 +22,7 @@
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">  
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="//code.tidio.co/h3vn9dwczska9xxz82te7gjkkgbdyhn8.js" async></script>
         <link href="css/navegadorCSS.css" rel="stylesheet" type="text/css"/>
         <link href="css/usuariosCSS.css" rel="stylesheet" type="text/css"/>
         <title>Futbol Retro - Usuarios</title> 
@@ -99,6 +100,10 @@
                                         <button type="submit" class="btn btn-danger" name="accion" value="actualizar" id="actualizar">Actualizar</button>
                                     </div>
                                 </form>
+                                        <div class="container-generador">   
+                                            <a class="btnExcel" href="srvUsuario?accion=exportarExcel"><img src="img/excel.png" alt="excel.png"/></a>
+                                            <a class="btnPDF" href="srvUsuario?accion=exportarPDF"><img src="img/pdf.png" alt="pdf.png"/></a>
+                                        </div>
                             </div>
                             <!-- Lado derecho: Tabla de usuarios -->
                             <div class="derecha">
