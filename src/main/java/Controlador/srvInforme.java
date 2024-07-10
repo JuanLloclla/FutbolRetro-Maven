@@ -25,8 +25,10 @@ public class srvInforme extends HttpServlet {
             switch (accion) {
                 case "agregar":
                     String descripcion = request.getParameter("descripcion");
+                    int idusuario = Integer.parseInt(request.getParameter("idUsuario"));
                     Informe informe = new Informe();
                     informe.setDescripcion(descripcion);
+                    informe.setIdUsuario(idusuario);
                     informeDAO.agregarInforme(informe);
                     response.sendRedirect("quejasAyuda.jsp");
                     break;

@@ -7,6 +7,7 @@
     // Obtener el valor del rol desde el alcance de sesión
     Usuario usuario = (Usuario) session.getAttribute("usuario");
     String rol = usuario.getRol();
+    int idUsuario = usuario.getId();
 
 %>
 <!DOCTYPE html>
@@ -64,6 +65,7 @@
                         <p class="texto">Escribe tu queja o solicitud de ayuda:</p>
                         <form action="srvInforme" method="post">
                             <input type="hidden" name="accion" value="agregar">
+                            <input type="hidden" name="idUsuario" value="<%= idUsuario %>">
                             <textarea name="descripcion" placeholder="Escribe aquí..."></textarea>
                             <button class="enviarQueja" type="submit">Enviar</button>
                         </form>

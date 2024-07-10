@@ -14,8 +14,10 @@ public class InformeDAO {
         PreparedStatement ps = null;
         
         try {
-            ps = con.prepareStatement("INSERT INTO informe (informedescripcion) VALUES (?)");
+            ps = con.prepareStatement("INSERT INTO informe (informedescripcion, idUsuario) VALUES (?, ?)");
             ps.setString(1, informe.getDescripcion());
+            ps.setInt(2, informe.getIdUsuario()); 
+            
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
