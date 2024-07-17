@@ -9,33 +9,7 @@
 %>
 <!DOCTYPE html>
 <html>    
-    <head>
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script type="text/javascript">
-            google.charts.load("current", {packages: ["corechart"]});
-            google.charts.setOnLoadCallback(drawChart);
-            function drawChart() {
-                var data = google.visualization.arrayToDataTable([
-                    ['Task', 'Hours per Day'],
-                    ['Work', 11],
-                    ['Eat', 2],
-                    ['Commute', 2],
-                    ['Watch TV', 2],
-                    ['Sleep', 7]
-                ]);
-
-                var options = {
-                    title: 'My Daily Activities',
-                    backgroundColor: { fill: "#999999"},
-                    fontSize: 15,
-                    is3D: true,
-                };
-
-                var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-                chart.draw(data, options);
-            }
-        </script>
-        
+    <head>  
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -45,8 +19,58 @@
         <link href="css/reportesCSS.css" rel="stylesheet" type="text/css"/>
         <title>Futbol Retro - Reportes</title>
         <link rel="icon" href="img/logo(Nuevo).png" type="image/x-icon">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load('current', {'packages': ['corechart']});
+            google.charts.setOnLoadCallback(drawVisualization);
+
+            function drawVisualization() {
+                // Some raw data (not necessarily accurate)
+                var data = google.visualization.arrayToDataTable([
+                    ['PRODUCTOS', 'Cam. Retro', 'Cam. Actuales', 'Balones'],
+                    ['Junio', 1, 1, 1],
+                    ['Julio', 11, 18, 15],
+                    ['Agosto', 1, 1, 1]
+                ]);
+
+                var options = {
+                    chartArea:{width:'50%',height:'55%'},
+                    title: 'PRODUCTOS VENDIDOS MENSUALES',
+                    fontSize: 20,
+                    seriesType: 'bars',
+                    series: {5: {type: 'line'}}
+                };
+
+                var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+                chart.draw(data, options);
+            }
+        </script>
+        <script type="text/javascript">
+            google.charts.load("current", {packages: ["corechart"]});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                    ['Task', 'Hours per Day'],
+                    ['Cam. Retro', 11],
+                    ['Cam. Actuales', 8],
+                    ['Balones', 15]
+                ]);
+
+                var options = {
+                    title: 'MAYORES PRODUCTOS VENDIDOS',
+                    backgroundColor: {fill: "white"},
+                    fontSize: 20,
+                    is3D: true,
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+                chart.draw(data, options);
+            }
+        </script>
     </head>
     <body>
+        <div id="chart_div" style="width: 900px; height: 500px;"></div>
         <div class="container-fuera">
             <div class="container-dentro">
 
