@@ -123,6 +123,12 @@ body {
     background-color: #414141 ; /* Cambia el color de fondo al pasar el ratón sobre el botón */
 }
 
+.mensaje{
+    margin: 0;
+    font-weight: bold;
+    color: #cc0033;
+}
+
 /* Imagen de la derecha*/
 .publicidad{
     width: 700px;

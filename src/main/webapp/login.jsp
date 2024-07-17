@@ -23,12 +23,14 @@
                     <input class="controls" type="password" name="txtclave" placeholder="Contraseña" autocomplete="off" required>
                     <input class="buttons" type="submit" name="accion" value="INGRESAR">
                     <br>
+                    <p class="mensaje">
                     <%
                         String mensaje = (String) request.getAttribute("mensaje");
                         if (mensaje != null) {
                             out.print(mensaje);
                         }
                     %>
+                    </p>
                 </form>
             </div>
             <div class="publicidad">

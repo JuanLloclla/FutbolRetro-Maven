@@ -8,6 +8,9 @@
     Usuario usuario = (Usuario) session.getAttribute("usuario");
     String rol = usuario.getRol();
     int idUsuario = usuario.getId();
+    String nombre = usuario.getNombre();
+    String apellido = usuario.getApellido();
+    
 
 %>
 <!DOCTYPE html>
@@ -66,6 +69,9 @@
                         <form action="srvInforme" method="post">
                             <input type="hidden" name="accion" value="agregar">
                             <input type="hidden" name="idUsuario" value="<%= idUsuario %>">
+                            <input type="hidden" name="nomUsuario" value="<%= nombre %>">
+                            <input type="hidden" name="apelUsuario" value="<%= apellido %>">
+                            <input type="email" name="email" class="gmail" placeholder="Ingresa tu correo electrónico" required>
                             <textarea name="descripcion" placeholder="Escribe aquí..."></textarea>
                             <button class="enviarQueja" type="submit">Enviar</button>
                         </form>
