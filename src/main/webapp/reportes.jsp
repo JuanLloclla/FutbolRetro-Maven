@@ -35,7 +35,7 @@
                 ]);
 
                 var options = {
-                    chartArea:{width:'50%',height:'55%'},
+                    chartArea:{width:'40%',height:'45%'},
                     title: 'PRODUCTOS VENDIDOS MENSUALES',
                     fontSize: 20,
                     seriesType: 'bars',

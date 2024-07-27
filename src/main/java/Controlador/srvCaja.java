@@ -80,11 +80,17 @@ public class srvCaja extends HttpServlet {
         if (accion != null) {
             switch (accion) {
                 case "BuscarCliente":
-                    int dni = Integer.parseInt(request.getParameter("dnicliente"));
-                    c.setDni(dni);
-                    c = cdao.buscarDni(dni);
-                    request.setAttribute("c", c);
+                    
+                    
+                    String dniClienteStr = request.getParameter("dnicliente");
+                    if (dniClienteStr != null && !dniClienteStr.isEmpty())  {
+                        int dni = Integer.parseInt(dniClienteStr);
+                        c.setDni(dni);
+                        c = cdao.buscarDni(dni);
+                        request.setAttribute("c", c);
 
+                        
+                    }
                     numeroserie = vdao.GenerarSerie();
                     if (numeroserie == null) {
                         numeroserie = "00000001";
@@ -101,8 +107,9 @@ public class srvCaja extends HttpServlet {
                             numeroserie = "00000001"; // Asignar un valor predeterminado en caso de error
                         }
                     }
-                    request.setAttribute("paginaActual", "caja");
+
                     request.setAttribute("nserie", numeroserie);
+                    request.setAttribute("paginaActual", "caja");
                     request.getRequestDispatcher("caja.jsp").forward(request, response);
                     break;
 
